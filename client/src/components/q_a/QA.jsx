@@ -118,7 +118,7 @@ class QA extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3002/api/questions/nike_kd_13')
+    axios.get('http://localhost:3002/api/questions')
       .then((results) => {
         console.log(results)
         this.setState({
