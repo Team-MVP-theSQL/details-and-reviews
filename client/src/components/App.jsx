@@ -61,7 +61,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get('/api/reviews')
+    Axios.get('http://localhost:3001/api/reviews')
       .then((data) => {
         let overallRatings = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
 
@@ -76,7 +76,7 @@ class App extends React.Component {
         }
 
         this.setState({
-          view: 'details',
+          view: 'reviews',
           reviews: data.data,
           overallRatings: overallRatings,
           qualityRatings: qualityRatings,

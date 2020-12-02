@@ -9,9 +9,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "npm run seed && nodemon ./server/index.js",
-    "dev": "webpack -w",
-    "seed": "node ./server/seed/seed.js"
+    "start": "nodemon ./server/index.js",
+    "build": "webpack -w",
+    "dev": "npm run build & npm run start"
   },
   "dependencies": {
     "axios": "^0.21.0",

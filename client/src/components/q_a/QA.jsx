@@ -118,10 +118,11 @@ class QA extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('api/questions/adidas_don_issue_2')
+    axios.get('http://localhost:3002/api/questions/nike_kd_13')
       .then((results) => {
+        console.log(results)
         this.setState({
-          questions: results.data.questions,
+          questions: results.data.questions
         });
       })
       .catch((err) => {
@@ -167,8 +168,8 @@ class QA extends React.Component {
 
     const indexOfLastQuestion = currentPage * questionsPerPage;
     const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
-    const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
-    const totalPages = Math.ceil(questions.length / questionsPerPage);
+    const currentQuestions = questions ? questions.slice(indexOfFirstQuestion, indexOfLastQuestion) : 0;
+    const totalPages = questions ? Math.ceil(questions.length / questionsPerPage) : 0;
 
     return (
       <>
